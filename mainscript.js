@@ -1,0 +1,9 @@
+$('.fa-bars').click(function(){
+    console.log("clicked");
+    $('.navBar').css('margin-left','0');
+    setTimeout(function(){
+        $(document).click(function(e){
+            console.log(e.target);
+        });
+    },100);
+});
