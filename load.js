@@ -14,6 +14,8 @@ $( document ).ready(function() {
         both: function() {
         }
     });
+    
+    //DATE CELL
     var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     var days =['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
     var today = new Date();
@@ -26,4 +28,24 @@ $( document ).ready(function() {
     $('.daytext').text(dayText);
     var totalDate = month + ' ' + day + 'th, ' + year;
     $('.dashDate').text(totalDate);
+    
+    
+    //CALCUATING DAYS TILL NEXT TEST
+    var month2 = today.getMonth();
+    if (month2 < 10) {
+        month2 = '0' + month2;
+        month2 = month2 * 1;
+    }
+    var oneDay = 24*60*60*1000;
+    var firstDate = new Date(2017,month2,day);
+    //SAT DATE TILL CLOSET TEST
+    var satDATE = new Date(2017,00,21);
+    //ACT DATE TILL CLOSEST TEST
+    var actDATE = new Date(2017,09,28);
+    //CALCUALTION
+    var diffDaysSAT = Math.round(Math.abs((firstDate.getTime() - satDATE.getTime())/(oneDay))) + ' days';
+    var diffDaysACT = Math.round(Math.abs((firstDate.getTime() - actDATE.getTime())/(oneDay))) + ' days';
+    
+    $('.actDays').text(diffDaysACT);
+    $('.satDays').text(diffDaysSAT);
 });
