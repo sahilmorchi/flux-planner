@@ -7,6 +7,16 @@ body {
 .shadow {
     box-shadow: 0 0 9px black;
 }
+.tileshadow {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+.minitileshaddow {
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,.14), 0 0px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    transition: box-shadow .2s;
+}
+.minitileshaddow:hover {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}
 .larger {
     font-size: 180%!important;
 }
@@ -20,7 +30,8 @@ body {
     background-color: #212121;
     z-index: 1000;
     transition: margin-left .2s ease-in;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 .profile {
     position: relative;
@@ -125,31 +136,99 @@ body {
 }
 
 .fluxlogo {
-    padding-top: 3%;
+    padding-top: 12;
 }
 
+
+
+
+
+
+
+/*MIDDLE LAYOUT */
+
 .middleLayout {
-  position: absolute; 
-  left: 240px; 
-  right: 0px; 
-  bottom: 0; 
-  top: 70px; 
-  width: 100%; 
-  height: auto; 
-  z-index: 999; 
-  background-color: white; 
-  opacity: 0.5;
-    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    float: right;
+    position: relative; 
+    width: calc( 100% - 240px); 
+    height: calc(100% - 70px); 
+    margin-top: 70px;
+    z-index: 999; 
+    background-color: white; 
+    display: none;
+    z-index: 0;
+    box-sizing: border-box;
+    padding: 20;
 }
+.today {
+    box-sizing: border-box;
+    padding: 30;
+    width: 300;
+    font-size: 160%;
+    color: slategray;
+    height: 180;
+    margin-right: 20;
+    margin-bottom: 20;
+}
+.dashDate {
+    font-size: 80%;
+    color: gray;
+}
+.daysLeft {
+    display: flex;
+    flex-direction: row;
+    height: 50;
+    margin-top: 10;
+    box-sizing: border-box;
+}
+.act {
+    cursor: pointer;
+    width: 100;
+    margin-right: 20;
+    padding-left: 10;
+    padding-top: 6;
+    box-sizing: border-box;
+}
+.sat {
+    cursor: pointer;
+    width: 100;
+    padding-left: 10;
+    padding-top: 6;
+    box-sizing: border-box;
+}
+.act div {
+    font-size: 60%;
+    box-sizing: border-box;
+    color: slategray;
+}
+.act .smaller {
+    padding-left: 3;
+    font-size: 50%;
+}
+.sat div {
+    font-size: 60%;
+    box-sizing: border-box;
+    color: slategray;
+}
+.sat .smaller {
+    padding-left: 3;
+    font-size: 50%;
+}
+
+
+
+
+.yourProgress {
+    width: 200;
+    height: 180;
+    margin-right: 10;
+    margin-bottom: 20;
+}
+
 
 
 
 /*RESPONSIVE DESIGN*/
-@media (max-width: 800px){
-    .navBar {
-        margin-left: -240;
-    }
-    .navOpen {
-        width: 80;
-    }
-}

@@ -7,13 +7,13 @@
     </head>
     <body>
         <!-- NAVIGATION BARS -->
-        <div class="navBar">
-            <div class="profile">
+        <div class="dontClose navBar">
+            <div class="dontClose profile">
                 <!-- <img class="pic" src="images/user2.png"> -->
                 <!--<div class="desc">Welcome <span class="name">Sidd Iyer</span></div>-->
                 <img class="fluxlogo" src="images/fluxlogo.png">
             </div>
-            <div class="navigation">
+            <div class="dontClose navigation">
                 <table class="navTable">
                     <tr>
                         <td class="larger icon">
@@ -66,12 +66,39 @@
         
         </div>
         
-        <main class="middleLayout">
+        
+         <!-- content pages -->
+        <main id="dashboardMid" class="activePage middleLayout">
+            <div class="tileshadow today">
+                <div class="daytext"></div>
+                <div class="dashDate"></div>
+                <div class="daysLeft">
+                    <div class="minitileshaddow act">
+                        <div>10 days</div>
+                        <div class="smaller">till the ACT</div>
+                    </div>
+                    <div class="minitileshaddow sat">
+                        <div>30 days</div>
+                        <div class="smaller">till the SAT</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tileshadow yourProgress"></div>
+        </main>
+        <main id="testsMid" class="middleLayout">
             <div id="circle"></div>
-      </main>
+        </main>
+        <main id="calendarMid" class="middleLayout">
+
+        </main>
+        <main id="analyticsMid" class="middleLayout">
+
+        </main>
        
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <!-- scripts -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="mediaCheck-min.js"></script>
+        <script src="load.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.js"></script>
         <script src="mainscript.js"></script>
         

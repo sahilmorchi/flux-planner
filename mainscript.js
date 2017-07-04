@@ -1,35 +1,72 @@
+var isClosed = 0;
 $('.fa-bars').click(function(){
-    console.log("clicked");
-    $('.navBar').css('margin-left','0');
-    setTimeout(function(){
-        $(document).click(function(e){
-            console.log(e.target);
+
+        event.stopPropagation();
+        $('.navBar').css('margin-left','');
+        isClosed = 0;
+        $('html').click(function() {
+            isClosed = 1;
+            $('.navBar').css('margin-left','-240');
+            $('html').unbind('click');
         });
-    },100);
+
+        $('.navBar').click(function(event){
+            event.stopPropagation();
+        });
+
+});
+$(window).resize(function(){
+    mediaCheck({
+        media: '(max-width: 800px)',
+        entry: function() {
+            $('.navBar').css('margin-left','-240');
+            $('.navOpen').css('width','80');
+            $('.middleLayout').css('width','100%');
+        },
+        exit: function() {
+            $('.navBar').css('margin-left','');
+            $('.navOpen').css('width','');
+            $('.middleLayout').css('width','');
+        },
+        both: function() {
+        }
+    });
 });
 
+$( document ).ready(function() {
+    $('#dashboardMid').css('display','flex');
+    $('#dashboardMid').addClass('activePage');
+});
+
+
 $('#dashboard').click(function(){
-    $('.pageTitle').html('Dashboard');
+    switchpage('#dashboardMid');
+    $('.pageTitle').text('Dashboard');
 });
 
 $('#testScores').click(function(){
+    switchpage('#testsMid');
     $('.pageTitle').html('Test Scores');
-    $('#circle').circleProgress({
-	value: calcPercentageSAT(1500),
-	size: 100,
-    startAngle: (Math.PI)*3/2,
-	fill: {
-		gradient: ["red", "orange"]
-	}
+    setTimeout(function(){
+        $('#circle').circleProgress({
+        value: calcPercentageSAT(1500),
+        size: 100,
+        startAngle: (Math.PI)*3/2,
+        fill: {
+            gradient: ["red", "orange"]
+        }
+    },100)
 });
 });
 
 $('#calendar').click(function(){
-    $('.pageTitle').html('Calendar');
+    switchpage('#calendarMid');
+    $('.pageTitle').text('Calendar');
 });
 
 $('#analytics').click(function(){
-    $('.pageTitle').html('Analytics');
+    switchpage('#analyticssdMid');
+    $('.pageTitle').text('Analytics');
 });
 
 
@@ -48,4 +85,11 @@ $('#circle').circleProgress({
 
 function calcPercentageSAT(score){
     return score/1600;
+}
+function switchpage(targetPage) {
+    var currentPage = $('.activePage');
+    currentPage.css('display','none');
+    currentPage.removeClass('activePage');
+    $(targetPage).css('display','flex');
+    $(targetPage).addClass('activePage');
 }
