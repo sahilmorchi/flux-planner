@@ -9,9 +9,9 @@
         <!-- NAVIGATION BARS -->
         <div class="navBar">
             <div class="profile">
-                <img class="pic" src="images/user2.png">
-                <div class="desc">Welcome <span class="name">Sidd Iyer</span></div>
-                <img src="images/fluxlogo.png">
+                <!-- <img class="pic" src="images/user2.png"> -->
+                <!--<div class="desc">Welcome <span class="name">Sidd Iyer</span></div>-->
+                <img class="fluxlogo" src="images/fluxlogo.png">
             </div>
             <div class="navigation">
                 <table class="navTable">
@@ -19,7 +19,7 @@
                         <td class="larger icon">
                             <i class="fa fa-home" aria-hidden="true"></i>
                         </td>
-                        <td>
+                        <td id="dashboard">
                             Dashboard
                         </td>
                     </tr>
@@ -27,7 +27,7 @@
                         <td class="icon">
                             <i class="fa fa-percent" aria-hidden="true"></i>
                         </td>
-                        <td>
+                        <td id="testScores">
                             Test Scores
                         </td>
                     </tr>
@@ -35,7 +35,7 @@
                         <td class="icon">
                             <i class="fa fa-calendar" aria-hidden="true"></i>
                         </td>
-                        <td>
+                        <td id="calendar">
                             Calendar
                         </td>
                     </tr>
@@ -43,7 +43,7 @@
                         <td class="icon">
                             <i class="fa fa-line-chart" aria-hidden="true"></i>
                         </td>
-                        <td>
+                        <td id="analytics">
                             Analytics
                         </td>
                     </tr>
@@ -65,8 +65,14 @@
             </table>
         
         </div>
+        
+        <main class="middleLayout">
+            <div id="circle"></div>
+      </main>
+       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.js"></script>
         <script src="mainscript.js"></script>
         
     </body>
