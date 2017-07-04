@@ -48,4 +48,29 @@ $( document ).ready(function() {
     
     $('.actDays').text(diffDaysACT);
     $('.satDays').text(diffDaysSAT);
+    
+    //MAKE THE CIRCLES DO STUFF ON DASHBOARD
+    $('#circle2').circleProgress({
+        value: .9,
+        size: 120,
+        startAngle: (Math.PI)*3/2,
+        fill: {
+            gradient: ["red", "orange"]
+        }
+    });
+    $('#circle3').circleProgress({
+        value: .75,
+        size: 120,
+        startAngle: (Math.PI)*3/2,
+        fill: {
+            gradient: ["red", "orange"]
+        }
+    }).on('circle-animation-progress', function(event, progress) {
+        $(this).find('.percDisplay').html(Math.round(36 * .75 * progress));
+    });
+    
+    
+    
+    
+    
 });
