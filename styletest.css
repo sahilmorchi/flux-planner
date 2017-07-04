@@ -17,7 +17,7 @@ body {
     position: fixed;
     height: 100%;
     width: 240;
-    background-color: #37474f;
+    background-color: #212121;
     z-index: 1000;
     transition: margin-left .2s ease-in;
     overflow: auto;
@@ -27,7 +27,7 @@ body {
     height: 160;
     width: 100%;
     padding: 0;
-    background-color: #36414f;
+    background-color: #455A64 ;
 }
 .profile .pic {
     position: relative;
@@ -75,7 +75,7 @@ body {
     border-collapse: collapse;
 }
 .navTable tr {
-    color: #b3b6b7;
+    color: #FFF;
     cursor: pointer;
     height: 60;
     transition: background-color .2s, color .2s;
@@ -89,7 +89,7 @@ body {
     padding-left: 25;
 }
 .navTable tr:hover {
-    background-color: white;
+    background-color: #03A9F4;
     color: #37474F;
 }
 
