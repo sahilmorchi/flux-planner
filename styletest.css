@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/*WORD -ATTRIBUTES; YOU CAN ADD THESE TO DO SEPCIFIC THINGS */
+.shadow {
+    box-shadow: 0 0 9px black;
+}
+.larger {
+    font-size: 180%!important;
+}
+
+/*NAVIGATION BARS*/
+.navBar {
+    position: fixed;
+    height: 100%;
+    width: 240;
+    background-color: #37474f;
+    z-index: 1000;
+    overflow: auto;
+}
+.profile {
+    position: relative;
+    height: 160;
+    width: 100%;
+    padding: 0;
+    background-color: #36414f;
+}
+.profile .pic {
+    position: relative;
+    width: 80;
+    height: 80;
+    margin-left: 80;
+    margin-top: 20;
+}
+.profile .desc {
+    text-align: center;
+    color: #eceff1 ;
+    margin-top: 15;
+    text-shadow: 0 0 9px black;
+}
+.name {
+    position: relative;
+    cursor: pointer;
+}
+.name:after{
+  content: '';
+  position: absolute;
+  width: 0; height: 3px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #fff;
+  transition: width .2s ease;
+  -webkit-transition: width .2s ease;
+}
+ 
+.name:hover:after{
+  width: 100%;
+  left: 0;
+  background: #fff;
+}
+.navigation {
+    position: relative;
+    height: calc(100% - 250px);
+    width: 100%;
+}
+.navTable {
+    margin-top: 10;
+    position: relative;
+    width: 100%;
+    border-collapse: collapse;
+}
+.navTable tr {
+    color: #b3b6b7;
+    cursor: pointer;
+    height: 60;
+    transition: background-color .2s, color .2s;
+}
+.navTable td {
+    font-size: 100%;
+}
+.navTable .icon {
+    font-size: 140%;
+    width: 30%;
+    padding-left: 25;
+}
+.navTable tr:hover {
+    background-color: white;
+    color: #37474F;
+}
+
+
+
+
+
+.overBar {
+    height: 70;
+    position: absolute;
+    width: 100%;
+    z-index: 999;   
+}
