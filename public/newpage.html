@@ -4,14 +4,19 @@
         <script src="https://use.fontawesome.com/470f638731.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="images/flux.png" rel="icon">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="805715965513-jpn5pac5c9vgtttlrvlh2sj9ch3pcds6.apps.googleusercontent.com">
+        <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
+
+
     </head>
     <body>
         <!-- NAVIGATION BARS -->
         <div class="dontClose navBar">
             <div class="dontClose profile">
-                <!-- <img class="pic" src="images/user2.png"> -->
-                <!--<div class="desc">Welcome <span class="name">Sidd Iyer</span></div>-->
-                <img class="fluxlogo" src="images/fluxlogo.png">
+                 <img class="pic" src="images/user2.png">
+                <div class="welcome">Guest</div>
+                <div class="desc"><button class="login a slide">&nbsp;</button></div>
             </div>
             <div class="dontClose navigation">
                 <table class="navTable">
@@ -111,9 +116,11 @@
         </main>
        
         <!-- scripts -->
-        <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-messaging.js"></script>
+
         <script>
           // Initialize Firebase
           var config = {
@@ -126,12 +133,12 @@
           };
           firebase.initializeApp(config);            
         </script>
-        <script src="js/login.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="js/mediaCheck-min.js"></script>
         <script src="js/load.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.js"></script>
         <script src="js/mainscript.js"></script>
+        <script src="js/login.js"></script>
         
     </body>
 

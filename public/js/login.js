@@ -1,17 +1,43 @@
 var provider = new firebase.auth.GoogleAuthProvider();
-firebase.auth().signInWithPopup(provider).then(function(result) {
-  // This gives you a Google Access Token. You can use it to access the Google API.
-  var token = result.credential.accessToken;
-  // The signed-in user info.
-  var user = result.user;
-  // ...
-}).catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // The email of the user's account used.
-  var email = error.email;
-  // The firebase.auth.AuthCredential type that was used.
-  var credential = error.credential;
-  // ...
+var signedIn = 0;
+var name = '';
+$('.login').click(function(){
+    if (signedIn == 0) {
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            var token = result.credential.accessToken;
+            var user = result.user;
+            var username = user.displayName;
+            name = user.displayName;
+            $('.welcome').text(username);
+            $('.login').removeClass('a');
+            var photoUrl = user.photoURL;
+            $('.pic').attr('src',photoUrl);
+
+        }).catch(function(error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            var email = error.email;
+            var credential = error.credential;
+        });
+        signedIn = 1;
+        
+    }
+    else {
+        firebase.auth().signOut().then(function() {
+            $('.login').addClass('a');
+            $('.welcome').text('Guest');
+            $('.pic').attr('src','images/user2.png');
+        }).catch(function(error) {
+            console.log("unsuccesful");
+        });
+        signedIn = 0;
+    }
+});
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    console.log("signin")
+  } else {
+    console.log("none")
+  }
 });
