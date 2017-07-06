@@ -1,6 +1,8 @@
 <html>
     <head>
         <link href="styles/styletest.css" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link type="text/css" rel="stylesheet" href="styles/materialize.css"  media="screen,projection"/>
         <script src="https://use.fontawesome.com/470f638731.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="images/flux.png" rel="icon">
@@ -15,10 +17,14 @@
     <body>
         <!-- NAVIGATION BARS -->
         <div class="dontClose navBar">
+            <div class="logo">
+                <img class="image" src="images/fluxlogo.png">
+                <div class="desc">PLANNER</div>
+            </div>
             <div class="dontClose profile">
                  <img class="pic" src="images/user2.png">
                 <div class="welcome">Guest</div>
-                <div class="desc"><button class="login a slide">&nbsp;</button></div>
+                <div class="desc"><a class="login waves-effect blue waves-dark btn">LOGIN</a></div>
             </div>
             <div class="dontClose navigation">
                 <table class="navTable">
@@ -136,6 +142,7 @@
           firebase.initializeApp(config);            
         </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
         <script src="js/mediaCheck-min.js"></script>
         <script src="js/load.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-circle-progress/1.2.2/circle-progress.js"></script>

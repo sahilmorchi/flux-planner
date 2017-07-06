@@ -9,7 +9,7 @@ $('.login').click(function(){
             var username = user.displayName;
             name = user.displayName;
             $('.welcome').text(username);
-            $('.login').removeClass('a');
+            $('.login').text('LOGOUT');
             var photoUrl = user.photoURL;
             $('.pic').attr('src',photoUrl);
 
@@ -24,7 +24,7 @@ $('.login').click(function(){
     }
     else {
         firebase.auth().signOut().then(function() {
-            $('.login').addClass('a');
+            $('.login').text('LOGIN');
             $('.welcome').text('Guest');
             $('.pic').attr('src','images/user2.png');
         }).catch(function(error) {

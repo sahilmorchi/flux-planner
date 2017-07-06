@@ -55,7 +55,7 @@ $( document ).ready(function() {
         size: 120,
         startAngle: (Math.PI)*3/2,
         fill: {
-            gradient: ["red", "orange"]
+            gradient: ["#56CCF2", "#2F80ED"]
         }
     }).on('circle-animation-progress', function(event, progress) {
         $(this).find('.percDisplay').html(Math.round(1600 * .9 * progress));
@@ -65,7 +65,7 @@ $( document ).ready(function() {
         size: 120,
         startAngle: (Math.PI)*3/2,
         fill: {
-            gradient: ["red", "orange"]
+            gradient: ["#36D1DC", "#5B86E5"]
         }
     }).on('circle-animation-progress', function(event, progress) {
         $(this).find('.percDisplay').html(Math.round(36 * .75 * progress));
