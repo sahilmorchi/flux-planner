@@ -148,7 +148,7 @@ body {
     box-sizing: border-box;
     padding-left: 20;
     font-size: 160%;
-    transition: width ,2s;
+    transition: width .2s;
 }
 .navOpen i {
     cursor: pointer;
