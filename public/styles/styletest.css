@@ -50,7 +50,7 @@ body {
     width: 240;
     background-color: #212121;
     z-index: 1000;
-    transition: margin-left .2s ease-in;
+    transition: margin-left .2s;
     overflow-y: auto;
     overflow-x: hidden;
 }
@@ -148,7 +148,7 @@ body {
     box-sizing: border-box;
     padding-left: 20;
     font-size: 160%;
-    transition: width .2s ease-in;
+    transition: width ,2s;
 }
 .navOpen i {
     cursor: pointer;
