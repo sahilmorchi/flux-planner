@@ -203,7 +203,7 @@ body {
 
 
 
-/*MIDDLE LAYOUT */
+/*dashboard page */
 .mainContainer {
     margin-left: 239px;
     width: calc(100% - 240px);
@@ -378,6 +378,103 @@ body {
 .moveUp {
     margin-top: -15
 }
+.close {
+    cursor: pointer;
+    transition: opacity .2s;
+    display: none;
+    opacity: 0;
+    font-size: 80%!important;
+    position: absolute;
+    margin-top: -4;
+    margin-left: 220;
+    color: rgba(0, 0, 0, 0.56);
+    color: #2196F3!important;
+}
+
+/* TESTS PAGE */
+.myScores {
+    box-sizing: border-box;
+    padding: 20;
+    display: flex;
+    flex-direction: row;
+    height: 380;
+    width: 100%;
+}
+.scoreBox {
+    height: 100;
+    width: 100;
+}
+.carousel {
+    position: relative;
+    height: 100%!important;
+}
+.score {
+    cursor: pointer;
+    height: 225!important;
+    width: 300!important;
+    box-sizing: border-box;
+    border: solid 1px gray;
+    color: white;
+}
+.date {
+    color: hwite;
+    float: right;
+}
+.tileTitle {
+    position: absolute;
+    font-size: 150%;
+    margin-left: 10;
+    margin-top: 10;
+    color: slategray;
+}
+.time {
+    float: right;
+}
+.testType {
+    font-size: 80%;
+    color: antiquewhite;
+}
+.scoreTable {
+    margin-top: 10;
+    font-size: 100%;
+    margin-bottom: 10;
+}
+.scoreTable td {
+    padding: 5px!important;
+}
+.scoreTable .icon {
+    width: 30;
+}
+.scoreTable .details .icon{
+    color: gray;
+}
+.tableDesc {
+    width: 140;
+}
+.details {
+    font-size: 70%;
+}
+.scores {
+    padding-left: 25;
+    margin-top: -1;
+    box-sizing: border-box;
+    padding-top: 2;
+    height: 154;
+    background-color: white;
+}
+.cardInfo {
+    padding-left: 30;
+    padding-right: 30;
+    padding-top: 20;
+    padding-bottom: 10;
+    background-color:  #2196F3;
+    
+}
+.indicators {
+    bottom: -0px!important;
+    color: black;
+}
+
 
 
 

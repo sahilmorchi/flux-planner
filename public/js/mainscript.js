@@ -52,6 +52,7 @@ $('#dashboard').click(function(){
 $('#testScores').click(function(){
     switchpage('#testsMid');
     $('.pageTitle').html('Test Scores');
+    $('.carousel').carousel({dist: -50, indicators: true});
     setTimeout(function(){
         $('#circle').circleProgress({
         value: calcPercentageSAT(1500),
@@ -76,24 +77,26 @@ $('#analytics').click(function(){
 
 
 //QUICK TILE JAVASCRIPT
-var quickAdd = {}
+var quickAdd = {};
 $(document).on('click','#quickACT',function(){
+    $('.close').css('display','block');
     $('.box').css('opacity','0'); 
     $('.quickAdd .title').css('height','1');
     $('.quickAdd .title').css('font-size','14');
     $('.quickAdd .title').css('margin-top','-10');
     setTimeout(function(){
         $('.box').empty();
-        $('.box').html('<p class="range-field"> <input id="englishScore" type="range" id="test5" min="0" max="75" /><label for="test5">Enter your English Score</label> </p><button id="englishSubmit" class="moveUp btn waves-effect waves-light" type="submit" name="action">Submit <i class="material-icons right">send</i> </button>');
+        $('.box').html('<p class="range-field"> <input id="englishScore" type="range" id="test5" min="0" max="75" /><label for="test5">Enter your English Score</label> </p><button id="englishSubmit" class="blue moveUp btn waves-effect waves-light" type="submit" name="action">Submit <i class="material-icons right">send</i> </button>');
         $('.box').css('opacity','1'); 
-    },200)
+        $('.close').css('opacity','1');
+    },200);
 });
 $(document).on('click','#englishSubmit',function(){
    quickAdd['englishScore'] = $('#englishScore').val();
     $('.box').css('opacity','0'); 
     setTimeout(function(){
         $('.box').empty();
-        $('.box').html('<p class="range-field"> <input id="mathScore" type="range" id="test5" min="0" max="60" /><label for="test5">Enter your Math Score</label> </p><button id="mathSubmit" class="moveUp btn waves-effect waves-light" type="submit" name="action">Submit <i class="material-icons right">send</i> </button>');
+        $('.box').html('<p class="range-field"> <input id="mathScore" type="range" id="test5" min="0" max="60" /><label for="test5">Enter your Math Score</label> </p><button id="mathSubmit" class="blue moveUp btn waves-effect waves-light" type="submit" name="action">Submit <i class="material-icons right">send</i> </button>');
         $('.box').css('opacity','1'); 
     },200) 
 });
@@ -102,7 +105,7 @@ $(document).on('click','#mathSubmit',function(){
     $('.box').css('opacity','0'); 
     setTimeout(function(){
         $('.box').empty();
-        $('.box').html('<p class="range-field"> <input id="readingScore" type="range" id="test5" min="0" max="40" /><label for="test5">Enter your Reading Score</label> </p><button id="readingSubmit" class="moveUp btn waves-effect waves-light" type="submit" name="action">Submit <i class="material-icons right">send</i> </button>');
+        $('.box').html('<p class="range-field"> <input id="readingScore" type="range" id="test5" min="0" max="40" /><label for="test5">Enter your Reading Score</label> </p><button id="readingSubmit" class="blue moveUp btn waves-effect waves-light" type="submit" name="action">Submit <i class="material-icons right">send</i> </button>');
         $('.box').css('opacity','1'); 
     },200) 
 });
@@ -111,18 +114,20 @@ $(document).on('click','#readingSubmit',function(){
     $('.box').css('opacity','0'); 
     setTimeout(function(){
         $('.box').empty();
-        $('.box').html('<p class="range-field"> <input id="scienceScore" type="range" id="test5" min="0" max="40" /><label for="test5">Enter your Science Score</label> </p><button id="endSubmit" class="moveUp btn waves-effect waves-light" type="submit" name="action">Submit <i class="material-icons right">send</i> </button>');
+        $('.box').html('<p class="range-field"> <input id="scienceScore" type="range" id="test5" min="0" max="40" /><label for="test5">Enter your Science Score</label> </p><button id="endSubmit" class="blue moveUp btn waves-effect waves-light" type="submit" name="action">Submit <i class="material-icons right">send</i> </button>');
         $('.box').css('opacity','1'); 
     },200) 
 });
 $(document).on('click','#endSubmit',function(){
    quickAdd['scienceScore'] = $('#scienceScore').val();
     $('.box').css('opacity','0'); 
+    $('.close').css('opacity','0');
     $('.quickAdd .title').css('height','');
     $('.quickAdd .title').css('font-size','');
     $('.quickAdd .title').css('margin-top','');
     setTimeout(function(){
         $('.box').empty();
+        $('.close').css('display','none');
         $('.box').html('<a id="quickACT" class="blue waves-effect waves-light btn-large">ACT</a> <a id="quickSAT" class="blue waves-effect waves-light btn-large">SAT</a>');
         $('.box').css('opacity','1'); 
         Materialize.toast("We added your ACT test successfully", 3000);
@@ -134,9 +139,23 @@ $(document).on('click','#endSubmit',function(){
         setTimeout(function(){Materialize.toast('Science Score: ' + quickAdd['scienceScore'], 4000);},1600);
         */
         console.log(quickAdd);
+        hasQuicked = 0;
     },200); 
 });
 
+$(document).on('click','#closeQuick',function(){
+    $('.box').css('opacity','0'); 
+    $('.close').css('opacity','0');
+    $('.quickAdd .title').css('height','');
+    $('.quickAdd .title').css('font-size','');
+    $('.quickAdd .title').css('margin-top','');
+    setTimeout(function(){
+        $('.box').empty();
+        $('.close').css('display','none');
+        $('.box').html('<a id="quickACT" class="blue waves-effect waves-light btn-large">ACT</a> <a id="quickSAT" class="blue waves-effect waves-light btn-large">SAT</a>');
+        $('.box').css('opacity','1'); 
+    },200); 
+});
 //FUNCTIONS
 function calcPercentageSAT(score){
     return score/1600;
