@@ -1,15 +1,17 @@
 $( document ).ready(function() {
      mediaCheck({
-        media: '(max-width: 800px)',
+        media: '(max-width: 1000px)',
         entry: function() {
             $('.navBar').css('margin-left','-240');
             $('.navOpen').css('width','80');
-            $('.middleLayout').css('width','100%');
+            $('.mainContainer').css('margin-left','0');
+            $('.mainContainer').css('width','100%');
         },
         exit: function() {
             $('.navBar').css('margin-left','');
             $('.navOpen').css('width','');
-            $('.middleLayout').css('width','');
+            $('.mainContainer').css('margin-left','');
+            $('.mainContainer').css('width','');
         },
         both: function() {
         }
@@ -50,30 +52,26 @@ $( document ).ready(function() {
     $('.satDays').text(diffDaysSAT);
     
     //MAKE THE CIRCLES DO STUFF ON DASHBOARD
-    $('#circle2').circleProgress({
-        value: .9,
-        size: 120,
-        startAngle: (Math.PI)*3/2,
-        fill: {
-            gradient: ["#56CCF2", "#2F80ED"]
-        }
-    }).on('circle-animation-progress', function(event, progress) {
-        $(this).find('.percDisplay').html(Math.round(1600 * .9 * progress));
-    });
-    $('#circle3').circleProgress({
-        value: .75,
-        size: 120,
-        startAngle: (Math.PI)*3/2,
-        fill: {
-            gradient: ["#36D1DC", "#5B86E5"]
-        }
-    }).on('circle-animation-progress', function(event, progress) {
-        $(this).find('.percDisplay').html(Math.round(36 * .75 * progress));
-    });
-    
+    createCircle('#circle2',.9,1600, '', '#36D1DC', "#5B86E5");
+    createCircle('#circle3',.8,36, '', '#36D1DC', "#5B86E5");
+    createCircle('#circle4',.8,100, '%', '#2196F3', "#009688");
+    createCircle('#circle5',.8,100, '', '#2196F3', "#009688");
+   
     
     
     
     
     
 });
+function createCircle(element, value, outOf, special, c1, c2) {
+    $(element).circleProgress({
+        value: value,
+        size: 150,
+        startAngle: (Math.PI)*3/2,
+        fill: {
+            gradient: [c1, c2]
+        }
+    }).on('circle-animation-progress', function(event, progress) {
+        $(this).find('.percDisplay').html(Math.round(outOf * value * progress) + special);
+    });
+}

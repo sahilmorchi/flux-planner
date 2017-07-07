@@ -22,15 +22,15 @@
                 <div class="desc">PLANNER</div>
             </div>
             <div class="dontClose profile">
-                 <img class="pic" src="images/user2.png">
+                 <img class="pic" src="images/profileIcon.png">
                 <div class="welcome">Guest</div>
                 <div class="desc"><a class="login waves-effect blue waves-dark btn">LOGIN</a></div>
             </div>
             <div class="dontClose navigation">
                 <table class="navTable">
                     <tr>
-                        <td class="larger icon">
-                            <i class="fa fa-home" aria-hidden="true"></i>
+                        <td class="icon">
+                            <i class="larger mdl-color-text--blue-grey-500 material-icons" role="presentation">home</i>
                         </td>
                         <td id="dashboard">
                             Dashboard
@@ -80,49 +80,103 @@
         </div>
         
         
-         <!-- content pages -->
-        <main id="dashboardMid" class="activePage middleLayout">
-            <div class="tileshadow today">
-                <div class="daytext"></div>
-                <div class="dashDate"></div>
-                <div class="daysLeft">
-                    <div class="minitileshaddow act">
-                        <div class="actDays">10 days</div>
-                        <div class="smaller">till the ACT</div>
+         <!-- Dashboard page -->
+        <div id="dashboardMid" class="activePage mainContainer">
+            <main class="middleLayout">
+                <!-- ANALYTICS tile -->
+                <div class="tileshadow analytics">
+                    <div class="circle" id="circle2">
+                        <div class="infoDisplay">
+                            <div class="percDisplay"></div>
+                            <div>SAT Average</div>
+                        </div>
                     </div>
-                    <div class="minitileshaddow sat">
-                        <div class="satDays">30 days</div>
-                        <div class="smaller">till the SAT</div>
+                    <div class="circle" id="circle3">
+                        <div class="infoDisplay">
+                            <div class="percDisplay"></div>
+                            <div>ACT Average</div>
+                        </div>
                     </div>
+                    <div class="circle" id="circle4">
+                        <div class="infoDisplay">
+                            <div class="percDisplay"></div>
+                            <div>Prepared</div>
+                        </div>
+                    </div>
+                    <div class="no circle" id="circle5">
+                        <div class="infoDisplay">
+                            <div class="percDisplay"></div>
+                            <div>Activites Done</div>
+                        </div>
+                    </div>
+                    
                 </div>
-            </div>
-            <div class="tileshadow satProgress">
-                <div id="circle2">
-                    <div class="infoDisplay">
-                        <div class="percDisplay"></div>
-                        <div>SAT Average</div>
-                    </div>
+                 <div class="tileshadow toDo">
+                    <div class="title">Today's Work</div>
+                     <p>
+                         <input
+                          type="checkbox" id="1" class="checkbox-indigo"/>
+                         <label class="margin white-text" for="1">Test</label>
+                     </p>
+                     <p>
+                         <input
+                          type="checkbox" id="2" class="checkbox-indigo"/>
+                         <label class="margin white-text" for="2">Test</label>
+                     </p>
+                     <p>
+                         <input
+                          type="checkbox" id="3" class="checkbox-indigo"/>
+                         <label class="margin white-text" for="3">Test</label>
+                     </p>
+                     <p>
+                         <input
+                          type="checkbox" id="4" class="checkbox-indigo"/>
+                         <label class="margin white-text" for="4">Test</label>
+                     </p>
+                     <p>
+                         <input
+                          type="checkbox" id="5" class="checkbox-indigo"/>
+                         <label class="margin white-text" for="5">Test</label>
+                     </p>
+                     <p>
+                         <input
+                          type="checkbox" id="6" class="checkbox-indigo"/>
+                         <label class="margin white-text" for="6">Test</label>
+                     </p>
+                     
+                     
+                
                 </div>
-            </div>
-            <div class="tileshadow actProgress">
-                <div id="circle3">
-                    <div class="infoDisplay">
-                        <div class="percDisplay"></div>
-                        <div>ACT Average</div>
+                <div class="flexCont">
+                    <div class="tileshadow today">
+                        <div class="daytext"></div>
+                        <div class="dashDate"></div>
+                        <div class="daysLeft">
+                            <div class="minitileshaddow act">
+                                <div class="actDays">10 days</div>
+                                <div class="smaller">till the ACT</div>
+                            </div>
+                            <div class="minitileshaddow sat">
+                                <div class="satDays">30 days</div>
+                                <div class="smaller">till the SAT</div>
+                            </div>
+                        </div>
                     </div>
+                   
                 </div>
-            </div>
-            <div class="tileshadow toDoList">
-            
-            
-            </div>
-        </main>
-        <main id="testsMid" class="middleLayout">
-            <div id="circle" class="satcircle"> <br><br> &nbsp; &nbsp; SAT Score</div>
-        </main>
+            </main>
+        </div>
+        <!-- Tests page -->
+        <div id="testsMid" class="mainContainer">
+            <main  class="middleLayout">
+                <div id="circle" class="satcircle"> <br><br> &nbsp; &nbsp; SAT Score</div>
+            </main>
+        </div>
+        <!-- Calendar page -->
         <main id="calendarMid" class="middleLayout">
 
         </main>
+        <!-- college page -->
         <main id="analyticsMid" class="middleLayout">
 
         </main>

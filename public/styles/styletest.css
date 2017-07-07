@@ -1,6 +1,12 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
+    border: solid .1px transparent;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-top: -1px!important;
+    margin-left: -1px!important;
+    background-color: #f5f5f5;
 }
 
 
@@ -19,13 +25,39 @@ body {
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
 }
 .larger {
-    font-size: 180%!important;
+    margin-left: -5;
+    font-size: 140%!important;
 }
 .move {
     margin-top: 0;
     margin-left: 10;
 }
-
+.checkbox-indigo[type="checkbox"] + label:before{
+  border: 2px solid indigo;
+  background: transparent;
+}
+.checkbox-indigo[type="checkbox"]:checked + label:before{
+  border: 2px solid transparent;
+  border-bottom: 2px solid indigo;
+  border-right: 2px solid indigo;
+  background: transparent;
+}
+.checkbox-indigo.filled-in[type="checkbox"] + label:after{
+  border: 2px solid indigo;
+  background: transparent;
+}
+.checkbox-indigo.filled-in[type="checkbox"]:checked + label:after{
+  background: indigo;
+}
+.checkbox-indigo.filled-in[type="checkbox"]:checked + label:before{
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+}
+.margin {
+    margin-bottom: 10;
+}
 /*NAVIGATION BARS*/
 .logo {
     position: relative;
@@ -44,7 +76,6 @@ body {
     margin-left: 116;
 }
 .navBar {
-    margin-left: ;
     position: fixed;
     height: 100%;
     width: 240;
@@ -55,15 +86,16 @@ body {
     overflow-x: hidden;
 }
 .profile {
+    margin-left: -1px;
     position: relative;
     height: 210;
     display: flex;
+    background-color: rgba(0,0,0,.3);
     align-items: center;
     flex-direction: column;
     width: 100%;
     padding: 0;
     border-style: solid;
-    border-bottom-color: #1E88E5;
 }
 
 .login {
@@ -112,7 +144,7 @@ body {
     border-collapse: collapse;
 }
 .navTable tr {
-    color:#e6e6e6;
+    color: rgba(255, 255, 255, 0.56);
     cursor: pointer;
     height: 60;
     transition: background-color .2s, color .2s;
@@ -137,6 +169,7 @@ body {
     height: 70;
     position: absolute;
     width: 100%;
+    background-color: white;
     z-index: 999;   
 }
 .overHeadTable {
@@ -171,22 +204,41 @@ body {
 
 
 /*MIDDLE LAYOUT */
-
+.mainContainer {
+    margin-left: 239px;
+    width: calc(100% - 240px);
+    margin-top: 70;
+    display: none;
+    overflow-y: auto;
+    height: calc(100% - 70px);
+}
 .middleLayout {
+    margin: 0 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    float: right;
-    position: relative; 
-    width: calc( 100% - 240px); 
-    height: calc(100% - 70px); 
-    margin-top: 70px;
+    position: relative;
+    max-width: 1080px;
+    margin-top: 10px;
     z-index: 999; 
-    background-color: white; 
-    display: none;
+    align-items: stretch;
     z-index: 0;
     box-sizing: border-box;
     padding: 20;
+}
+.middleLayout > div {
+    background-color: white;
+}
+.flexCont > div {
+    background-color: white;
+}
+.flexCont {
+    height:100;
+    min-width: 320;
+    display: flex;
+    width: calc(100% - 250px);
+    flex-wrap: wrap;
+    background-color: transparent!important;
 }
 .today {
     box-sizing: border-box;
@@ -204,6 +256,7 @@ body {
 }
 .daysLeft {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     height: 50;
     margin-top: 10;
@@ -243,7 +296,35 @@ body {
     font-size: 50%;
 }
 
-
+.analytics {
+    flex-wrap: wrap;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    padding: 30;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    margin-bottom: 20;
+}
+.analytics .title {
+    font-size: 160%;
+    color: slategray;
+}
+.toDo {
+    padding: 30;
+    width: 220;
+    background-color: #2196F3!important;
+    margin-right: 20;
+    height: 500;
+    margin-bottom: 20; 
+}
+.toDo .title {
+    margin-bottom: 20;
+    color: white;
+    font-size: 120%;
+}
 
 
 .satProgress {
@@ -252,25 +333,17 @@ body {
     margin-right: 20;
     margin-bottom: 20;
 }
-#circle2 {
-    height: 100%;
+.circle {
+    margin: 10;
     box-sizing: border-box;
-    padding-left: 40;
-    padding-top: 30;
 }
-#circle3 {
-    position: relative;
-    height: 80%;
-    box-sizing: border-box;
-    padding-left: 40;
-    padding-right: 40;
-    padding-top: 30;
-    padding-bottom: 30;
+.no {
+    margin-bottom: 0;
 }
 .actProgress {
     width: 200;
     height: 180;
-    margin-right: 10;
+    margin-right: 20;
     margin-bottom: 20;
 }
 .percDisplay {
@@ -284,8 +357,9 @@ body {
 .infoDisplay {
     position: absolute;
     width: 120;
+    margin-left: 13;
     height: 120;
-    margin-top: -120;
+    margin-top: -137;
 }
 .infoDisplay div {
     text-align: center;

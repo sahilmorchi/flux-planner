@@ -17,16 +17,18 @@ $('.fa-bars').click(function(){
 });
 $(window).resize(function(){
     mediaCheck({
-        media: '(max-width: 800px)',
+        media: '(max-width: 1000px)',
         entry: function() {
             $('.navBar').css('margin-left','-240');
             $('.navOpen').css('width','80');
-            $('.middleLayout').css('width','100%');
+            $('.mainContainer').css('margin-left','0');
+            $('.mainContainer').css('width','100%');
         },
         exit: function() {
             $('.navBar').css('margin-left','');
             $('.navOpen').css('width','');
-            $('.middleLayout').css('width','');
+            $('.mainContainer').css('margin-left','');
+            $('.mainContainer').css('width','');
         },
         both: function() {
         }
@@ -34,7 +36,7 @@ $(window).resize(function(){
 });
 
 $( document ).ready(function() {
-    $('#dashboardMid').css('display','flex');
+    $('#dashboardMid').css('display','block');
     $('#dashboardMid').addClass('activePage');
 });
 
@@ -90,6 +92,6 @@ function switchpage(targetPage) {
     var currentPage = $('.activePage');
     currentPage.css('display','none');
     currentPage.removeClass('activePage');
-    $(targetPage).css('display','flex');
+    $(targetPage).css('display','block');
     $(targetPage).addClass('activePage');
 }
