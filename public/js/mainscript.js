@@ -1,23 +1,8 @@
-var isClosed = 0;
-$('.fa-bars').click(function(){
 
-        event.stopPropagation();
-        $('.navBar').css('margin-left','');
-        isClosed = 0;
-        $('html').click(function() {
-            isClosed = 1;
-            $('.navBar').css('margin-left','-240');
-            $('html').unbind('click');
-        });
-
-        $('.navBar').click(function(event){
-            event.stopPropagation();
-        });
-
-});
+//RESPONSIVENESS
 $(window).resize(function(){
     mediaCheck({
-        media: '(max-width: 1000px)',
+        media: '(max-width: 900px)',
         entry: function() {
             $('.navBar').css('margin-left','-240');
             $('.navOpen').css('width','80');
@@ -35,6 +20,24 @@ $(window).resize(function(){
     });
 });
 
+//NAVIGATION
+var isClosed = 0;
+$('.fa-bars').click(function(){
+
+        event.stopPropagation();
+        $('.navBar').css('margin-left','');
+        isClosed = 0;
+        $('html').click(function() {
+            isClosed = 1;
+            $('.navBar').css('margin-left','-240');
+            $('html').unbind('click');
+        });
+
+        $('.navBar').click(function(event){
+            event.stopPropagation();
+        });
+
+});
 $( document ).ready(function() {
     $('#dashboardMid').css('display','block');
     $('#dashboardMid').addClass('activePage');
@@ -72,19 +75,69 @@ $('#analytics').click(function(){
 });
 
 
+//QUICK TILE JAVASCRIPT
+var quickAdd = {}
+$(document).on('click','#quickACT',function(){
+    $('.box').css('opacity','0'); 
+    $('.quickAdd .title').css('height','1');
+    $('.quickAdd .title').css('font-size','14');
+    $('.quickAdd .title').css('margin-top','-10');
+    setTimeout(function(){
+        $('.box').empty();
+        $('.box').html('<p class="range-field"> <input id="englishScore" type="range" id="test5" min="0" max="75" /><label for="test5">Enter your English Score</label> </p><button id="englishSubmit" class="moveUp btn waves-effect waves-light" type="submit" name="action">Submit <i class="material-icons right">send</i> </button>');
+        $('.box').css('opacity','1'); 
+    },200)
+});
+$(document).on('click','#englishSubmit',function(){
+   quickAdd['englishScore'] = $('#englishScore').val();
+    $('.box').css('opacity','0'); 
+    setTimeout(function(){
+        $('.box').empty();
+        $('.box').html('<p class="range-field"> <input id="mathScore" type="range" id="test5" min="0" max="60" /><label for="test5">Enter your Math Score</label> </p><button id="mathSubmit" class="moveUp btn waves-effect waves-light" type="submit" name="action">Submit <i class="material-icons right">send</i> </button>');
+        $('.box').css('opacity','1'); 
+    },200) 
+});
+$(document).on('click','#mathSubmit',function(){
+   quickAdd['mathScore'] = $('#mathScore').val();
+    $('.box').css('opacity','0'); 
+    setTimeout(function(){
+        $('.box').empty();
+        $('.box').html('<p class="range-field"> <input id="readingScore" type="range" id="test5" min="0" max="40" /><label for="test5">Enter your Reading Score</label> </p><button id="readingSubmit" class="moveUp btn waves-effect waves-light" type="submit" name="action">Submit <i class="material-icons right">send</i> </button>');
+        $('.box').css('opacity','1'); 
+    },200) 
+});
+$(document).on('click','#readingSubmit',function(){
+   quickAdd['readingScore'] = $('#readingScore').val();
+    $('.box').css('opacity','0'); 
+    setTimeout(function(){
+        $('.box').empty();
+        $('.box').html('<p class="range-field"> <input id="scienceScore" type="range" id="test5" min="0" max="40" /><label for="test5">Enter your Science Score</label> </p><button id="endSubmit" class="moveUp btn waves-effect waves-light" type="submit" name="action">Submit <i class="material-icons right">send</i> </button>');
+        $('.box').css('opacity','1'); 
+    },200) 
+});
+$(document).on('click','#endSubmit',function(){
+   quickAdd['scienceScore'] = $('#scienceScore').val();
+    $('.box').css('opacity','0'); 
+    $('.quickAdd .title').css('height','');
+    $('.quickAdd .title').css('font-size','');
+    $('.quickAdd .title').css('margin-top','');
+    setTimeout(function(){
+        $('.box').empty();
+        $('.box').html('<a id="quickACT" class="blue waves-effect waves-light btn-large">ACT</a> <a id="quickSAT" class="blue waves-effect waves-light btn-large">SAT</a>');
+        $('.box').css('opacity','1'); 
+        Materialize.toast("We added your ACT test successfully", 3000);
+        /*
+        Materialize.toast('Added an ACT Test with these scores:', 4000);
+        setTimeout(function(){Materialize.toast('Reading Score: ' + quickAdd['readingScore'], 4000);},1000);
+        setTimeout(function(){Materialize.toast('Math Score: ' + quickAdd['mathScore'], 4000);},1200);
+        setTimeout(function(){Materialize.toast('English Score: ' + quickAdd['englishScore'], 4000);},1400);
+        setTimeout(function(){Materialize.toast('Science Score: ' + quickAdd['scienceScore'], 4000);},1600);
+        */
+        console.log(quickAdd);
+    },200); 
+});
 
-
-
-/*
-$('#circle').circleProgress({
-    size: 100,
-    startAngle: (Math.PI)*3/2,
-    value: calcPercentageSAT(1500)
-  }).on('circle-animation-progress', function(event, progress) {
-    $(this).find('strong').html(Math.round(100 * progress) + '<i>%</i>');
-  });
-*/
-
+//FUNCTIONS
 function calcPercentageSAT(score){
     return score/1600;
 }

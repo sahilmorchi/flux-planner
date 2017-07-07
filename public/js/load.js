@@ -1,6 +1,7 @@
 $( document ).ready(function() {
+    $('ul.tabs').tabs();
      mediaCheck({
-        media: '(max-width: 1000px)',
+        media: '(max-width: 900px)',
         entry: function() {
             $('.navBar').css('margin-left','-240');
             $('.navOpen').css('width','80');
