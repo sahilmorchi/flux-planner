@@ -58,6 +58,12 @@ body {
 .margin {
     margin-bottom: 10;
 }
+.center {
+    margin-left: 40%;
+}
+.down {
+    margin-top: 20
+}
 /*NAVIGATION BARS*/
 .logo {
     position: relative;
@@ -399,6 +405,12 @@ body {
     flex-direction: row;
     height: 380;
     width: 100%;
+}
+.myScores .info {
+    margin-top: 110;
+    text-align: center;
+    font-size: 180%;
+    color: slategray;
 }
 .scoreBox {
     height: 100;
