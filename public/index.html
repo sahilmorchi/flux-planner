@@ -10,6 +10,7 @@
         <meta name="google-signin-client_id" content="805715965513-jpn5pac5c9vgtttlrvlh2sj9ch3pcds6.apps.googleusercontent.com">
         <link href="https://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
         <title>Flux Planner</title>
 
 
@@ -183,6 +184,12 @@
                 <div class="tileshadow myScores">
                     <div class="tileTitle">Recent Scores</div>
                     <div class="carousel">
+                    </div>
+                </div>
+                <div class="tileshadow charts">
+                    <div class="chartTitle">Progress Graph</div>
+                    <div class="chartsContainer">
+                        <canvas id="testChart" class="canvasChart"></canvas>
                     </div>
                 </div>
             </main>

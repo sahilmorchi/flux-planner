@@ -47,6 +47,7 @@ $('.login').click(function(){
         signedIn = 0;
     }
 });
+//charts 
 
 
 
@@ -103,6 +104,7 @@ $('#dashboard').click(function(){
 $('#testScores').click(function(){
     switchpage('#testsMid');
     populateScores();
+    generateChart();
     $('.pageTitle').html('Test Scores');
     var aretherCards = $('.carousel').children().length
     setTimeout(function(){
@@ -325,7 +327,7 @@ function populateScores() {
         }
         $('.carousel').html(html);
         setTimeout(function(){
-            $('.carousel').carousel({dist: -50, indicators: true});  
+            $('.carousel').carousel({dist: -120, indicators: true});  
         },10);   
     }
     else {
@@ -345,6 +347,45 @@ function addTestDatabase(uid) {
 function sync() {
     Materialize.toast("Your data has succesfully synced!", 4000);
     return database.ref('/users/'+uid+'/tests/').set(allScores);   
+}
+function generateChart() {
+    var labels = [];
+    var chartData = [];
+    for (var item in allScores) {
+        var date = allScores[item]['date'];
+        labels.unshift(date);
+        var score = allScores[item]['totalScore']
+        chartData.unshift(score);
+    }
+    var ctx = document.getElementById("testChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'ACT Score',
+                data: chartData,
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)',
+                ],
+                borderWidth: 1
+            }
+            ]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true,
+                        max: 40
+                    }
+                }]
+            }
+        }
+    });
 }
 
 
