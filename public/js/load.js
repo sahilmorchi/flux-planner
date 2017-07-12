@@ -59,7 +59,7 @@ $( document ).ready(function() {
     createCircle('#circle5',.8,100, '', '#2196F3', "#009688");
    
     
-    
+scheduler.init('scheduler_here', new Date(),"month");
     
     
     
