@@ -48,7 +48,8 @@ $('.login').click(function(){
     }
 });
 //charts 
-
+//variable important for calendar.js
+var enterMethod = 0;
 
 
 //RESPONSIVENESS
@@ -337,11 +338,19 @@ function populateScores() {
 
 function addTestDatabase(uid) {
     if (signedIn == 1) {
-        Materialize.toast("We added your test succesfully!", 3000);
-        return database.ref('/users/'+uid+'/tests/').set(allScores);   
+        if (enterMethod == 0) {
+            Materialize.toast("We added your test succesfully!", 3000);
+            return database.ref('/users/'+uid+'/tests/').set(allScores);  
+        }
+        else if (enterMethod == 1) {
+            Materialize.toast("Your daily assignment has been saved succesfully!", 3000);
+            return database.ref('/users/'+uid+'/tests/').set(allScores); 
+        }
     }
     else {
-        Materialize.toast("We temporarilly saved your data, please login to save the data.", 4000);
+        if (enterMethod == 0) {
+            Materialize.toast("Your daily assignment has been temporarily saved. Login for it to stay around.", 4000);
+        }
     }
 }
 function sync() {

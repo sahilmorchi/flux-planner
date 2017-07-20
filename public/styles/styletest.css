@@ -545,6 +545,7 @@ body {
     text-align: center;
 }
 .assignName {
+    cursor: default;
     background-color: white;
     margin: 0 auto;
     margin-top: 10;
